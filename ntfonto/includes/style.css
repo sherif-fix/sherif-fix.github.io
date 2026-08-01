@@ -1,0 +1,112 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #111111;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)),
+        url("background.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #dddddd;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 28px;
+    margin: 10px 0 5px 0;
+    text-shadow: 0 2px 5px #000000;
+}
+
+h3 {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0 0 15px 0;
+    text-shadow: 0 2px 4px #000000;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    margin: 15px auto;
+    width: 90%;
+}
+
+.btn-container {
+    width: min(440px, 88%);
+    margin: 20px auto 30px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:disabled,
+button:hover:disabled {
+    background: #0b2253;
+    cursor: default;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+#kernel-options {
+    margin-bottom: 1rem;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid #555555;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-color: #00ff00;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.hidden-console {
+    display: none !important;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 12px;
+        background-position: center center;
+    }
+
+    .btn-container {
+        width: auto;
+        padding: 16px;
+    }
+}
