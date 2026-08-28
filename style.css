@@ -1,9 +1,8 @@
 /* =========================================================
-   SHERIF FIX / ENG. SHERIF AREF - SLIM & TRANSPARENT GLASS
-   High-Visibility Background & Compact UI Theme
+   SHERIF FIX / ENG. SHERIF AREF - PS4 PREMIUM THEME
    ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@600;700;800&family=Tajawal:wght@500;700;900&display=swap');
+/* System fonts only: reliable in the PS4 browser and offline mode. */
 
 * {
     margin: 0;
@@ -19,10 +18,9 @@
     --neon-gold: #ffbe0b;
     --neon-fire: #ff5e36;
     --neon-ps5: #7b2cbf;
-    /* زجاج شديد الشفافية لإظهار تفاصيل الخلفية بالكامل */
-    --glass-bg: rgba(10, 20, 38, 0.45);
-    --glass-border: rgba(0, 210, 255, 0.35);
-    --text-glow: 0 0 8px rgba(0, 210, 255, 0.8);
+    --glass-bg: rgba(10, 20, 38, 0.65);
+    --glass-border: rgba(0, 210, 255, 0.4);
+    --text-glow: 0 0 12px rgba(0, 210, 255, 0.9);
 }
 
 html, body {
@@ -33,7 +31,7 @@ html, body {
     background-repeat: no-repeat;
     background-color: var(--bg-dark);
     color: #ffffff;
-    font-family: 'Rajdhani', 'Tajawal', -apple-system, sans-serif;
+    font-family: "Trebuchet MS", Arial, sans-serif;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -48,67 +46,67 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 20px;
-    margin: 10px auto 0;
-    width: 90%;
-    max-width: 1050px;
-    height: 48px;
-    background: rgba(8, 16, 32, 0.55);
+    padding: 10px 22px;
+    margin: 12px auto 0;
+    width: 92%;
+    max-width: 1100px;
+    height: 58px;
+    background: rgba(8, 16, 32, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-radius: 14px;
-    border: 1.5px solid var(--neon-blue);
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+    border-radius: 16px;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
     z-index: 10;
 }
 
 .brand-badge {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-shrink: 0;
 }
 
 .logo-mini {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     object-fit: cover;
-    border: 1.5px solid var(--neon-blue);
+    border: 2px solid var(--neon-blue);
 }
 
 .brand-name {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 14px;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 21px;
     font-weight: 900;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: #ffffff;
     text-shadow: var(--text-glow);
     white-space: nowrap;
 }
 
 #msgs {
-    font-family: 'Orbitron', 'Tajawal', sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
     color: var(--neon-blue);
-    text-shadow: 0 0 8px rgba(0, 210, 255, 0.7);
+    text-shadow: 0 0 12px rgba(0, 210, 255, 0.9);
     text-align: center;
     flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 .status-indicator {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
     color: var(--neon-cyan);
     text-transform: uppercase;
     white-space: nowrap;
@@ -116,34 +114,34 @@ html, body {
 }
 
 .status-dot {
-    width: 7px;
-    height: 7px;
+    width: 9px;
+    height: 9px;
     background: var(--neon-cyan);
     border-radius: 50%;
-    box-shadow: 0 0 8px var(--neon-cyan);
+    box-shadow: 0 0 12px var(--neon-cyan);
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.3; transform: scale(1.2); }
+    50% { opacity: 0.3; transform: scale(1.3); }
 }
 
 /* =========================================================
-   COMPACT & CLEAR MAIN GLASS CONTAINER
+   MAIN GLASS CONTAINER
    ========================================================= */
 
 .glass-container {
-    width: 88%;
-    max-width: 820px; /* تم تصغير العرض لعدم تغطية تفاصيل الصورة */
-    margin: 8px auto;
-    padding: 14px 20px;
+    width: 90%;
+    max-width: 880px;
+    margin: 10px auto;
+    padding: 22px 24px;
     background: var(--glass-bg);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-radius: 18px;
-    border: 1.5px solid var(--glass-border);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 210, 255, 0.15);
+    border-radius: 20px;
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0, 210, 255, 0.2);
     text-align: center;
     z-index: 5;
 }
@@ -153,46 +151,47 @@ html, body {
 }
 
 .logo-hero {
-    width: 55px; /* تصغير اللوجو لتوفير مساحة */
-    height: 55px;
-    border-radius: 12px;
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
     object-fit: cover;
-    border: 1.5px solid var(--neon-blue);
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
-    margin-bottom: 4px;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+    margin-bottom: 6px;
 }
 
 .hero-slogan {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 3px;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 4px;
     color: var(--neon-blue);
     text-shadow: var(--text-glow);
 }
 
 /* =========================================================
-   COMPACT FEATURED LAUNCH CARDS
+   FEATURED LAUNCH CARDS (مربعات واضحة وكبيرة في النص)
    ========================================================= */
 
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 12px 0;
+    gap: 18px;
+    margin: 16px 0;
 }
 
 .console-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 14px; /* كروت أنيقة ومدمجة */
-    background: rgba(14, 28, 54, 0.6);
+    gap: 18px;
+    min-height: 102px;
+    padding: 19px 21px;
+    background: linear-gradient(135deg, rgba(16, 34, 65, 0.94), rgba(5, 14, 30, 0.96));
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 14px;
-    border: 1.5px solid var(--glass-border);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255,255,255,0.08);
     text-decoration: none;
     cursor: pointer;
     position: relative;
@@ -200,91 +199,63 @@ html, body {
 }
 
 .console-card:hover {
-    background: rgba(20, 42, 80, 0.8);
+    background: rgba(20, 42, 80, 0.95);
 }
 
-.card-gold:hover { border-color: var(--neon-gold); box-shadow: 0 0 15px rgba(255, 190, 11, 0.5); }
-.card-cyan:hover { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 255, 204, 0.5); }
-.card-fire:hover { border-color: var(--neon-fire); box-shadow: 0 0 15px rgba(255, 94, 54, 0.5); }
-.card-ps5:hover  { border-color: var(--neon-ps5);  box-shadow: 0 0 15px rgba(123, 44, 191, 0.5); }
+.card-gold:hover { border-color: var(--neon-gold); box-shadow: 0 0 22px rgba(255, 190, 11, 0.7); }
+.card-cyan:hover { border-color: var(--neon-cyan); box-shadow: 0 0 22px rgba(0, 255, 204, 0.7); }
+.card-fire:hover { border-color: var(--neon-fire); box-shadow: 0 0 22px rgba(255, 94, 54, 0.7); }
+.card-ps5:hover  { border-color: var(--neon-ps5);  box-shadow: 0 0 22px rgba(123, 44, 191, 0.7); }
 
 .card-icon {
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+    font-size: 31px;
     flex-shrink: 0;
+    background: rgba(0, 210, 255, 0.12);
+    border: 1px solid rgba(0, 210, 255, 0.55);
+    box-shadow: 0 0 18px rgba(0, 210, 255, 0.18);
+}
+
+.card-icon-text {
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.card-icon-ps5 {
+    font-size: 16px;
+    letter-spacing: 0;
 }
 
 .card-info {
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 100%;
 }
 
 .card-title {
-    font-family: 'Orbitron', 'Tajawal', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 21px;
+    font-weight: 900;
     color: #ffffff;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.4px;
+    line-height: 1.15;
 }
 
 .card-subtitle {
-    font-size: 10.5px;
-    color: #cbd5e1;
-    margin-top: 1px;
-}
-
-/* =========================================================
-   SUB ACTIONS & BUTTONS
-   ========================================================= */
-
-.sub-actions {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 8px;
-}
-
-.btn-tool {
-    padding: 6px 14px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 12.5px;
-    font-weight: 700;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1.5px solid var(--glass-border);
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-tool:hover {
-    background: var(--neon-blue);
-    color: #040811;
-    font-weight: 900;
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 12px rgba(0, 210, 255, 0.7);
-}
-
-.btn-social {
-    margin-top: 8px;
-    padding: 6px 20px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11.5px;
-    font-weight: 900;
-    color: #ffffff;
-    background: linear-gradient(135deg, #0074e4, #00d2ff);
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    box-shadow: 0 0 12px rgba(0, 116, 228, 0.5);
-    transition: opacity 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-social:hover {
-    opacity: 0.9;
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
+    font-size: 16px;
+    font-weight: 800;
+    color: #e2e8f0;
+    margin-top: 7px;
+    line-height: 1.2;
 }
 
 /* =========================================================
@@ -294,27 +265,28 @@ html, body {
 .legacy-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin: 12px 0;
+    gap: 12px;
+    margin: 16px 0;
 }
 
 .btn-legacy {
-    padding: 8px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11.5px;
-    font-weight: 700;
+    padding: 12px;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 900;
     color: #ffffff;
-    background: rgba(14, 28, 54, 0.7);
-    border: 1.5px solid var(--glass-border);
-    border-radius: 10px;
+    background: rgba(14, 28, 54, 0.85);
+    border: 2px solid var(--glass-border);
+    border-radius: 12px;
     cursor: pointer;
     transition: border-color 0.2s ease, background 0.2s ease;
+    text-align: center;
 }
 
 .btn-legacy:hover {
     border-color: var(--neon-cyan);
-    background: rgba(0, 255, 204, 0.2);
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    background: rgba(0, 255, 204, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
 }
 
 /* =========================================================
@@ -323,23 +295,24 @@ html, body {
 
 .footer-bar {
     text-align: center;
-    padding: 8px 16px;
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #94a3b8;
-    background: rgba(8, 16, 32, 0.65);
-    border-top: 1px solid rgba(0, 210, 255, 0.2);
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 900;
+    color: #cbd5e1;
+    background: rgba(8, 16, 32, 0.8);
+    border-top: 2px solid rgba(0, 210, 255, 0.2);
     width: 100%;
 }
 
 .footer-bar a {
-    color: var(--neon-blue);
+    color: #ff3b3b;
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 900;
+    text-shadow: 0 0 8px rgba(255, 40, 40, 0.75);
 }
 
 .footer-bar a:hover {
-    color: var(--neon-cyan);
+    color: #ff7878;
 }
 
 /* =========================================================
@@ -349,11 +322,115 @@ html, body {
 @media (max-width: 850px) {
     .featured-grid { grid-template-columns: 1fr; }
     .legacy-grid { grid-template-columns: repeat(2, 1fr); }
-    #msgs { font-size: 12px; }
-    .header-bar { height: auto; padding: 8px 12px; flex-direction: column; gap: 6px; }
+    #msgs { font-size: 15px; }
+    .header-bar { height: auto; padding: 10px 14px; flex-direction: column; gap: 8px; }
 }
 
 @media (max-width: 500px) {
     .legacy-grid { grid-template-columns: 1fr; }
-    .glass-container { width: 95%; padding: 12px 10px; }
+    .glass-container { width: 95%; padding: 14px 12px; }
+}
+
+/* =========================================================
+   PS4 READABILITY + PROFESSIONAL CARD FINISH
+   ========================================================= */
+
+.card-gold { border-color: rgba(255, 190, 11, 0.72); }
+.card-gold .card-icon { color: #ffcf43; background: rgba(255, 190, 11, 0.13); border-color: #ffbe0b; box-shadow: 0 0 18px rgba(255, 190, 11, 0.24); }
+.card-gold .card-title { color: #ffd75e; }
+
+.card-cyan { border-color: rgba(0, 255, 204, 0.65); }
+.card-cyan .card-icon { color: #62ffe1; background: rgba(0, 255, 204, 0.12); border-color: #00ffcc; box-shadow: 0 0 18px rgba(0, 255, 204, 0.22); }
+.card-cyan .card-title { color: #63ffe1; }
+
+.card-fire { border-color: rgba(255, 94, 54, 0.72); }
+.card-fire .card-icon { color: #ff8667; background: rgba(255, 94, 54, 0.13); border-color: #ff5e36; box-shadow: 0 0 18px rgba(255, 94, 54, 0.24); }
+.card-fire .card-title { color: #ff8b70; }
+
+.card-ps5 { border-color: rgba(118, 128, 255, 0.75); }
+.card-ps5 .card-icon { color: #aeb5ff; background: rgba(89, 103, 255, 0.14); border-color: #7f8cff; box-shadow: 0 0 18px rgba(89, 103, 255, 0.26); }
+.card-ps5 .card-title { color: #b9beff; }
+
+.sub-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 14px;
+}
+
+.btn-tool,
+.btn-social {
+    min-height: 46px;
+    padding: 11px 18px;
+    color: #f7fbff;
+    background: linear-gradient(180deg, rgba(15, 42, 75, 0.95), rgba(6, 20, 42, 0.96));
+    border: 2px solid rgba(0, 210, 255, 0.62);
+    border-radius: 10px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255,255,255,0.1);
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-tool:hover,
+.btn-social:hover {
+    color: #ffffff;
+    border-color: #00ffcc;
+    background: linear-gradient(180deg, rgba(17, 70, 105, 0.98), rgba(5, 34, 55, 0.98));
+    box-shadow: 0 0 19px rgba(0, 255, 204, 0.34);
+}
+
+.tool-icon {
+    display: inline-block;
+    min-width: 27px;
+    margin-right: 6px;
+    padding: 3px 4px;
+    color: #06101e;
+    background: #7edfff;
+    border-radius: 5px;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1.1;
+    text-align: center;
+    vertical-align: 2px;
+    box-shadow: 0 0 9px rgba(0, 210, 255, 0.55);
+}
+
+.btn-social {
+    min-width: 230px;
+    margin-top: 4px;
+    border-color: rgba(39, 140, 255, 0.78);
+    color: #d9ecff;
+}
+
+.sub-title {
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: var(--text-glow);
+}
+
+.btn-back { margin-top: 7px; }
+
+@media (max-height: 760px) and (min-width: 851px) {
+    .header-bar { margin-top: 7px; height: 52px; }
+    .glass-container { margin: 7px auto; padding-top: 16px; padding-bottom: 16px; }
+    .logo-hero { width: 58px; height: 58px; }
+    .featured-grid { margin: 11px 0; gap: 12px; }
+    .console-card { min-height: 86px; padding: 14px 17px; }
+    .card-title { font-size: 19px; }
+    .card-subtitle { font-size: 15px; }
+    .sub-actions { margin: 11px 0 8px; }
+    .btn-tool, .btn-social { min-height: 40px; padding: 8px 14px; font-size: 15px; }
+    .footer-bar { padding: 8px 15px; font-size: 15px; }
 }

@@ -13,16 +13,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        var histlength = history.length;
-        history.go(-histlength + 2);
-    </script>
-
     <!-- Top Header System Bar -->
     <div class="header-bar">
         <div class="brand-badge">
-            <img src="icon0.jpg" onerror="this.src='icon0.png'; this.onerror=function(){this.src='logo.png';};" alt="Sherif Aref" class="logo-mini">
-            <span class="brand-name">SHERIF AREF</span>
+            <img src="icon0.jpg" onerror="this.src='icon0.png'; this.onerror=function(){this.src='logo.png';};" alt="Sherif Fix" class="logo-mini">
+            <span class="brand-name">SHERIF FIX</span>
         </div>
         <h1 id="msgs">SHERIF AREF PREMIUM HOST</h1>
         <div class="status-indicator">
@@ -33,8 +28,8 @@
     <!-- Main Glass Console Interface -->
     <div id="main-panel" class="glass-container">
         <div class="logo-center">
-            <img src="icon0.jpg" onerror="this.src='icon0.png'; this.onerror=function(){this.src='logo.png';};" alt="Sherif Aref" class="logo-hero">
-            <h2 class="hero-slogan">SHERIF AREF GAMING & REPAIR HUB</h2>
+            <img src="icon0.jpg" onerror="this.src='icon0.png'; this.onerror=function(){this.src='logo.png';};" alt="Sherif Fix" class="logo-hero">
+            <h2 class="hero-slogan">SHERIF FIX GAMING &amp; REPAIR HUB</h2>
         </div>
 
         <!-- The 4 Main Featured Launch Cards -->
@@ -44,7 +39,7 @@
                onmouseover="document.getElementById('msgs').innerHTML='Sherif Aref 7.00 - 9.60 FW Host'" 
                onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
                 <div class="card-glow"></div>
-                <div class="card-icon">👑</div>
+                <div class="card-icon card-icon-text">7-9</div>
                 <div class="card-info">
                     <span class="card-title">SHERIF AREF 7.00 – 9.60</span>
                     <span class="card-subtitle">GoldHEN & Kernel Environment</span>
@@ -56,7 +51,7 @@
                onmouseover="document.getElementById('msgs').innerHTML='PS4 Webkit & PPPwn Host up to 11.02'" 
                onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
                 <div class="card-glow"></div>
-                <div class="card-icon">⚡</div>
+                <div class="card-icon card-icon-text">11</div>
                 <div class="card-info">
                     <span class="card-title">SHERIF AREF UP TO 11.02</span>
                     <span class="card-subtitle">CSSFontFace Exploit Suite</span>
@@ -65,22 +60,22 @@
 
             <!-- 3. Sherif Aref FW 13.00 (Direct Launch) -->
             <a href="fw13/PS4_13.00_Webkit.html" class="console-card card-fire"
-               onmouseover="document.getElementById('msgs').innerHTML='🔥 Sherif Aref PS4 FW 13.00 Direct Exploit Launch 🔥'" 
+               onmouseover="document.getElementById('msgs').innerHTML='Sherif Aref PS4 FW 13.00 Direct Exploit Launch'" 
                onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
                 <div class="card-glow"></div>
-                <div class="card-icon">🔥</div>
+                <div class="card-icon card-icon-text">13</div>
                 <div class="card-info">
-                    <span class="card-title">🔥 SHERIF AREF FW 13.00 🔥</span>
+                    <span class="card-title">SHERIF AREF FW 13.00</span>
                     <span class="card-subtitle">Direct Webkit Sequence</span>
                 </div>
             </a>
 
             <!-- 4. Sherif Aref PS5 FW 9.00 - 12.00 -->
-            <a href="ps5/index.html" class="console-card card-ps5"
-               onmouseover="document.getElementById('msgs').innerHTML='🚀 Sherif Aref PS 5 FW 9.00 - 12.00 Host'" 
+            <a href="Ps5/index.html" class="console-card card-ps5"
+               onmouseover="document.getElementById('msgs').innerHTML='Sherif Aref PS 5 FW 9.00 - 12.00 Host'" 
                onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
                 <div class="card-glow"></div>
-                <div class="card-icon">🚀</div>
+                <div class="card-icon card-icon-text card-icon-ps5">PS5</div>
                 <div class="card-info">
                     <span class="card-title">SHERIF AREF PS 5 FW 9.00 - 12.00</span>
                     <span class="card-subtitle">PlayStation 5 Dedicated Kernel Hub</span>
@@ -93,17 +88,17 @@
             <button class="btn-tool" onclick="openFirmwareCenter()"
                     onmouseover="document.getElementById('msgs').innerHTML='View All Previous Firmwares (5.05 - 9.00)'" 
                     onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
-                ⚙️ Firmware Center (5.05 - 9.00)
+                <span class="tool-icon">FW</span> Firmware Center (5.05 - 9.00)
             </button>
             <a href="https://ps5jb-umtx2.netlify.app/" class="btn-tool"
                onmouseover="document.getElementById('msgs').innerHTML='PS5 UMTX2 1.xx - 5.xx FW Host v1.0'" 
                onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
-                🎮 PS5 UMTX2 v1.0
+                <span class="tool-icon">P5</span> PS5 UMTX2 v1.0
             </a>
             <button class="btn-tool" onclick="location.replace('restore/index.html')"
                     onmouseover="document.getElementById('msgs').innerHTML='Restore User Guide Host Offline'" 
                     onmouseout="document.getElementById('msgs').innerHTML='SHERIF AREF PREMIUM HOST'">
-                🔄 Restore Host
+                <span class="tool-icon">R</span> Restore Host
             </button>
         </div>
 
@@ -117,7 +112,7 @@
 
     <!-- Hidden Sub-Panel: Firmware Center -->
     <div id="firmware-panel" class="glass-container" style="display: none;">
-        <h2 class="sub-title">SHERIF AREF FIRMWARE CENTER</h2>
+        <h2 class="sub-title">SHERIF FIX FIRMWARE CENTER</h2>
         <div class="legacy-grid">
             <button class="btn-legacy" onclick="location.replace('505goldhen/index.html')">5.05 GoldHEN</button>
             <button class="btn-legacy" onclick="location.replace('505/index.html')">5.05 v2.5</button>
@@ -129,7 +124,7 @@
             <button class="btn-legacy" onclick="location.replace('900v2/index.html')">9.00 v2.8 Manual</button>
             <button class="btn-legacy" onclick="location.replace('900v3/index.html')">9.00 v3.0 Auto</button>
         </div>
-        <button class="btn-tool btn-back" onclick="closeFirmwareCenter()">⬅ Back to Main Menu</button>
+        <button class="btn-tool btn-back" onclick="closeFirmwareCenter()">&lt; Back to Main Menu</button>
     </div>
 
     <!-- Fixed Console Footer -->
