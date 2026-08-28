@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" manifest="cache.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>MR PS STORE | PS4 SMART HOST</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { width:100%; height:100%; margin:0; overflow:hidden; }
+  body {
+    color:#f4f8ff;
+    background:#07101e url('../../img.jpg') center center / cover no-repeat fixed;
+    font-family:Arial, Tahoma, sans-serif;
+  }
+  body:before {
+    content:""; position:fixed; z-index:0; top:0; right:0; bottom:0; left:0;
+    background:rgba(2,9,20,.54);
+  }
+  .topbar {
+    position:relative; z-index:1; width:84%; height:52px; margin:18px auto 0;
+    padding:0 22px; display:flex; align-items:center; justify-content:space-between;
+    direction:ltr; border:2px solid #00d9ff; border-radius:15px;
+    background:rgba(5,18,36,.92); box-shadow:0 0 24px rgba(0,217,255,.25);
+    font-size:17px; font-weight:bold; letter-spacing:1.4px;
+  }
+  .brand { display:flex; align-items:center; }
+  .brand img { width:38px; height:38px; margin-right:11px; object-fit:cover; border-radius:9px; }
+  .online { color:#18f2cf; }
+  .online:before { content:""; display:inline-block; width:9px; height:9px; margin-right:8px; border-radius:50%; background:#18f2cf; box-shadow:0 0 10px #18f2cf; }
+  .panel {
+    position:relative; z-index:1; width:670px; max-width:86%; margin:5vh auto 0;
+    padding:20px 38px 23px; text-align:center; border:2px solid rgba(0,217,255,.72);
+    border-radius:23px; background:rgba(4,16,34,.91);
+    box-shadow:0 0 48px rgba(0,217,255,.22), inset 0 0 32px rgba(19,72,120,.22);
+  }
+  .logo { width:132px; height:132px; object-fit:cover; border:2px solid #00d9ff; border-radius:22px; box-shadow:0 0 22px rgba(0,217,255,.35); }
+  h1 { margin:13px 0 4px; color:#00dcff; font-size:29px; letter-spacing:2px; }
+  .subtitle { margin:0 0 15px; color:#c1cee0; font-size:16px; font-weight:bold; }
+  #state { margin:0; color:#fff; font-size:27px; font-weight:bold; }
+  #det { min-height:25px; margin-top:8px; color:#61ffe4; font-size:18px; font-weight:bold; }
+  #det b { color:#fff; }
+  #cache { min-height:25px; margin-top:10px; color:#ffd04f; font-size:17px; font-weight:bold; }
+  #cache.cacheok { color:#66f2b2; }
+  .cache-track { width:82%; height:8px; margin:10px auto 0; overflow:hidden; border-radius:10px; background:rgba(255,255,255,.13); }
+  #cache-fill { width:8%; height:100%; border-radius:10px; background:linear-gradient(90deg,#00a8ff,#16f3cc); box-shadow:0 0 12px #00d9ff; transition:width .25s ease; }
+  .ok { color:#66f2b2 !important; } .bad { color:#ff7168 !important; } .warn { color:#ffd04f !important; }
+  .hint { margin-top:12px; color:#aebdd0; font-size:13px; }
+  .footer { position:fixed; z-index:1; left:0; right:0; bottom:12px; text-align:center; direction:ltr; color:#edf4ff; font-size:14px; font-weight:bold; }
+  .footer span { color:#ff4451; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><img src="../../icon0.jpeg" alt="MR PS"><span>MR PS STORE</span></div>
+  <div class="online">PS4 SMART HOST</div>
+</header>
+
+<main class="panel">
+  <img src="../../icon0.jpeg" alt="MR PS Store" class="logo">
+  <h1>MR PS STORE</h1>
+  <p class="subtitle">نظام التهكير الذكي التلقائي</p>
+  <div id="state">جاري التعرف على إصدار جهازك...</div>
+  <div id="det"></div>
+  <div id="cache">جاري فحص ملفات الأوفلاين...</div>
+  <div class="cache-track"><div id="cache-fill"></div></div>
+  <div class="hint">لا تغلق المتصفح أثناء تجهيز الملفات</div>
+</main>
+
+<footer class="footer">Designed by: <span>@Mr Sherif</span> &nbsp;|&nbsp; MR PS Store</footer>
+
+<script>
+(function () {
+    var stateEl = document.getElementById("state");
+    var detEl = document.getElementById("det");
+    var cacheEl = document.getElementById("cache");
+    var cacheFill = document.getElementById("cache-fill");
+    function setState(t, c) { stateEl.textContent = t; stateEl.className = c || ""; }
+    function setCache(t, ok, percent) {
+        cacheEl.textContent = t;
+        cacheEl.className = ok ? "cacheok" : "";
+        if (typeof percent === "number") cacheFill.style.width = percent + "%";
+        if (ok) cacheFill.style.width = "100%";
+    }
+    var params = new URLSearchParams(location.search);
+    var key = null, fwnum = null;
+    var m = /PlayStation\s+4[\/ ](\d+)\.(\d+)/.exec(navigator.userAgent);
+    if (m) {
+        var minor = parseInt(m[2], 16);
+        var ms = minor.toString(16);
+        if (ms.length < 2) ms = "0" + ms;
+        key = m[1] + "." + ms;
+        fwnum = parseInt(m[1], 10) * 100 + parseInt(ms, 10);
+    }
+
+    var bug = null;
+    var forced = params.get("bug");
+    if (forced === "lapse" || forced === "poops") {
+        bug = forced;
+    } else if (key && fwnum <= 1202) {
+        bug = "lapse";
+    } else if (key && fwnum >= 1250) {
+        bug = "poops";
+    }
+
+    if (!bug) {
+        setState("هذا الإصدار غير مدعوم", "bad");
+        detEl.innerHTML = key ? "تم اكتشاف إصدار <b>" + key + "</b>" : "تعذر التعرف على جهاز PS4";
+        setCache("ارجع إلى الصفحة الرئيسية", false, 0);
+        return;
+    }
+
+    detEl.innerHTML = "تم اكتشاف إصدار <b>" + key + "</b> واختيار المحرك المناسب تلقائيًا";
+    setState("جاري تجهيز جهازك...", "warn");
+
+    var target = (bug === "lapse" ? "run_lapse.html" : "run_poops.html") + location.search;
+    function go() {
+        setState("جاري الآن تهكير جهازك...", "warn");
+        window.setTimeout(function () { location.replace(target); }, 600);
+    }
+
+    function waitForTap(msg, action) {
+        setState(msg, "ok");
+        function fire() {
+            window.removeEventListener("click", fire);
+            window.removeEventListener("keydown", fire);
+            action();
+        }
+        window.addEventListener("click", fire);
+        window.addEventListener("keydown", fire);
+    }
+
+    var ac = window.applicationCache;
+    if (!ac || !document.documentElement.hasAttribute("manifest")) {
+        go();
+    } else if (!navigator.onLine) {
+        setCache("وضع الأوفلاين جاهز", true, 100);
+        go();
+    } else if (ac.status === ac.IDLE) {
+        setCache("ملفات الأوفلاين جاهزة", true, 100);
+        go();
+    } else if (ac.status === ac.UPDATEREADY) {
+        try { ac.swapCache(); } catch (e) {}
+        setCache("تم تنزيل تحديث جديد", true, 100);
+        waitForTap("اضغط زر X لتطبيق التحديث", function () { location.reload(); });
+    } else {
+        setCache("جاري فحص ملفات الأوفلاين...", false, 8);
+        ac.addEventListener("downloading", function () {
+            setCache("جاري حفظ ملفات الأوفلاين لأول مرة...", false, 12);
+        }, false);
+        ac.addEventListener("progress", function (e) {
+            if (e && e.total) {
+                var percent = Math.round((e.loaded / e.total) * 100);
+                setCache("جاري حفظ ملفات الأوفلاين " + percent + "%", false, percent);
+            }
+        }, false);
+        ac.addEventListener("cached", function () {
+            setCache("تم حفظ ملفات الأوفلاين بنجاح", true, 100);
+            waitForTap("تم التجهيز - اضغط زر X للمتابعة", go);
+        }, false);
+        ac.addEventListener("updateready", function () {
+            try { ac.swapCache(); } catch (e) {}
+            setCache("تم تنزيل تحديث جديد", true, 100);
+            waitForTap("اضغط زر X لتطبيق التحديث", function () { location.reload(); });
+        }, false);
+        ac.addEventListener("noupdate", function () {
+            setCache("ملفات الأوفلاين جاهزة", true, 100);
+            go();
+        }, false);
+        ac.addEventListener("error", function () {
+            setCache("تعذر حفظ الكاش", false, 0);
+            waitForTap("اضغط زر X للمتابعة أونلاين", go);
+        }, false);
+        ac.addEventListener("obsolete", function () {
+            setCache("الكاش القديم يحتاج إلى تحديث", false, 0);
+            waitForTap("اضغط زر X للمتابعة", go);
+        }, false);
+    }
+})();
+</script>
+</body>
+</html>

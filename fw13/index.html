@@ -1,156 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Mr Sherif Premium Host | MR PS Store</title>
+    <title>Sherif Fix | Smart Firmware Host</title>
+    <link rel="icon" type="image/jpeg" href="../icon0.jpg">
+    <link rel="shortcut icon" href="../icon0.jpg">
 
-    <!-- Browser Tab Favicon -->
-    <link rel="icon" type="image/png" href="MR PS.jpg">
-    <link rel="icon" type="image/jpeg" href="MR PS.jpg">
-    <link rel="shortcut icon" href="MR PS.jpg">
-    <link rel="apple-touch-icon" href="MR PS.jpg">
-
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * { box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+        body {
+            color: #f4f8ff;
+            background: #07101e url('../img.jpg') center center / cover no-repeat fixed;
+            font-family: Arial, Tahoma, sans-serif;
+        }
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: rgba(2, 9, 20, .45);
+        }
+        .topbar {
+            position: relative;
+            z-index: 1;
+            width: 86%;
+            max-width: 1050px;
+            height: 58px;
+            margin: 18px auto 0;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #00d9ff;
+            border-radius: 16px;
+            background: rgba(5, 18, 36, .90);
+            box-shadow: 0 0 24px rgba(0, 217, 255, .3);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .brand { display: flex; align-items: center; font-size: 21px; font-weight: 900; }
+        .brand img {
+            width: 38px;
+            height: 38px;
+            margin-right: 12px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1.5px solid #00d9ff;
+        }
+        .online { color: #12f1ce; font-size: 15px; font-weight: 900; }
+        .online:before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 9px;
+            border-radius: 50%;
+            background: #12f1ce;
+            box-shadow: 0 0 12px #12f1ce;
+        }
+        .panel {
+            position: relative;
+            z-index: 1;
+            width: 720px;
+            max-width: 90%;
+            margin: 6vh auto 0;
+            padding: 30px 40px 26px;
+            text-align: center;
+            border: 2px solid rgba(0, 217, 255, .8);
+            border-radius: 22px;
+            background: rgba(4, 16, 34, .92);
+            box-shadow: 0 0 45px rgba(0, 217, 255, .25), inset 0 0 30px rgba(19, 72, 120, .3);
+        }
+        .logo {
+            width: 76px;
+            height: 76px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid #00d9ff;
+            box-shadow: 0 0 18px rgba(0, 217, 255, 0.4);
+        }
+        h1 { margin: 14px 0 6px; color: #00dcff; font-size: 30px; letter-spacing: 2px; font-weight: 900; }
+        .range { margin: 0 0 20px; color: #b9c9df; font-size: 16px; font-weight: bold; letter-spacing: 1px; }
+        .status-box {
+            padding: 16px;
+            border: 1.5px solid #2b5c86;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, .35);
+        }
+        #state { margin: 0; color: #fff; font-size: 23px; font-weight: 900; }
+        #detail { min-height: 24px; margin-top: 8px; color: #60ffe5; font-size: 16px; font-weight: bold; }
+        #countdown { margin-top: 16px; color: #ffcb3d; font-size: 16px; font-weight: bold; }
+        .routes { margin-top: 18px; color: #aebed2; font-size: 13.5px; line-height: 1.6; }
+        .error { color: #ff665b !important; }
+        .ready { color: #60ffe5 !important; }
+        .btn-back {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 9px 24px;
+            font-size: 14px;
+            font-weight: 900;
+            color: #ffffff;
+            background: rgba(0, 116, 228, 0.35);
+            border: 1.5px solid #00d2ff;
+            border-radius: 18px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-back:hover {
+            background: #0074e4;
+            box-shadow: 0 0 20px rgba(0, 116, 228, 0.7);
+        }
+        .footer {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            bottom: 12px;
+            text-align: center;
+            color: #e8f1ff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .footer a {
+            color: #ff3d45;
+            text-decoration: none;
+            font-weight: 900;
+        }
+    </style>
 </head>
 <body>
-    <script>
-        var histlength = history.length;
-        history.go(-histlength + 2);
-    </script>
+    <audio id="bg-music" src="music_background.mp3" autoplay loop></audio>
 
-    <!-- Top Header System Bar -->
-    <div class="header-bar">
-        <div class="brand-badge">
-            <img src="MR PS.jpg" onerror="this.src='icon0.jpg'; this.onerror=function(){this.src='icon0.png';};" alt="MR PS" class="logo-mini">
-            <span class="brand-name">MR PS STORE</span>
+    <div class="topbar">
+        <div class="brand">
+            <img src="../icon0.jpg" onerror="this.src='icon0.jpg'; this.onerror=function(){this.src='../icon0.png';};" alt="Sherif Fix">
+            SHERIF FIX
         </div>
-        <h1 id="msgs">MR SHERIF PREMIUM HOST</h1>
-        <div class="status-indicator">
-            <span class="status-dot"></span> SYSTEM ONLINE
-        </div>
+        <div class="online">SMART ROUTER ONLINE</div>
     </div>
 
-    <!-- Main Glass Console Interface -->
-    <div id="main-panel" class="glass-container">
-        <div class="logo-center">
-            <img src="MR PS.jpg" onerror="this.src='icon0.jpg'; this.onerror=function(){this.src='icon0.png';};" alt="MR PS Store" class="logo-hero">
-            <h2 class="hero-slogan">SWAP • SHOP • FIX NONSTOP</h2>
+    <main class="panel">
+        <img class="logo" src="../icon0.jpg" onerror="this.src='icon0.jpg'; this.onerror=function(){this.src='../icon0.png';};" alt="Sherif Fix">
+        <h1>SHERIF AREF SMART HOST</h1>
+        <p class="range">AUTOMATIC FIRMWARE DETECTION 5.05 - 13.00</p>
+        <div class="status-box">
+            <p id="state">DETECTING YOUR PS4 FIRMWARE...</p>
+            <div id="detail"></div>
         </div>
+        <div id="countdown"></div>
+        <div class="routes">5.05 - 9.60 &nbsp;|&nbsp; 10.00 - 11.02 &nbsp;|&nbsp; 11.50 - 13.00<br>11.50 - 12.02: LAPSE &nbsp;&bull;&nbsp; 12.50 - 13.00: POOPS</div>
+        <a href="../index.html" class="btn-back">⬅ Return to Main Menu</a>
+    </main>
 
-        <!-- The 4 Main Featured Launch Cards -->
-        <div class="featured-grid">
-            <!-- 1. MR Sherif 7.00 - 9.60 -->
-            <a href="g2all/index.html" class="console-card card-gold"
-               onmouseover="document.getElementById('msgs').innerHTML='Mr PS Store 7.00 - 9.60 FW Host by Mr Sherif'" 
-               onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                <div class="card-glow"></div>
-                <div class="card-icon">👑</div>
-                <div class="card-info">
-                    <span class="card-title">MR SHERIF 7.00 – 9.60</span>
-                    <span class="card-subtitle">GoldHEN & Kernel Environment</span>
-                </div>
-            </a>
-
-            <!-- 2. MR Sherif up to 11.02 -->
-            <a href="ntfonto/index.html" class="console-card card-cyan"
-               onmouseover="document.getElementById('msgs').innerHTML='PS4 Webkit & PPPwn Host up to 11.02'" 
-               onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                <div class="card-glow"></div>
-                <div class="card-icon">⚡</div>
-                <div class="card-info">
-                    <span class="card-title">MR SHERIF UP TO 11.02</span>
-                    <span class="card-subtitle">CSSFontFace Exploit Suite</span>
-                </div>
-            </a>
-
-            <!-- 3. MR Sherif FW 13.00 (Direct Launch) -->
-            <a href="fw13/PS4_13.00_Webkit.html" class="console-card card-fire"
-               onmouseover="document.getElementById('msgs').innerHTML='🔥 Mr Sherif PS4 FW 13.00 Direct Exploit Launch 🔥'" 
-               onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                <div class="card-glow"></div>
-                <div class="card-icon">🔥</div>
-                <div class="card-info">
-                    <span class="card-title">🔥 MR SHERIF FW 13.00 🔥</span>
-                    <span class="card-subtitle">Direct Webkit Sequence</span>
-                </div>
-            </a>
-
-            <!-- 4. MR Sherif PS5 FW 9.00 - 12.00 -->
-            <a href="ps5/index.html" class="console-card card-ps5"
-               onmouseover="document.getElementById('msgs').innerHTML='🚀 Mr Sherif PS 5 FW 9.00 - 12.00 Host'" 
-               onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                <div class="card-glow"></div>
-                <div class="card-icon">🚀</div>
-                <div class="card-info">
-                    <span class="card-title">MR SHERIF PS 5 FW 9.00 - 12.00</span>
-                    <span class="card-subtitle">PlayStation 5 Dedicated Kernel Hub</span>
-                </div>
-            </a>
-        </div>
-
-        <!-- Secondary Functions -->
-        <div class="sub-actions">
-            <button class="btn-tool" onclick="openFirmwareCenter()"
-                    onmouseover="document.getElementById('msgs').innerHTML='View All Previous Firmwares (5.05 - 9.00)'" 
-                    onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                ⚙️ Firmware Center (5.05 - 9.00)
-            </button>
-            <a href="https://ps5jb-umtx2.netlify.app/" class="btn-tool"
-               onmouseover="document.getElementById('msgs').innerHTML='PS5 UMTX2 1.xx - 5.xx FW Host v1.0'" 
-               onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                🎮 PS5 UMTX2 v1.0
-            </a>
-            <button class="btn-tool" onclick="location.replace('restore/index.html')"
-                    onmouseover="document.getElementById('msgs').innerHTML='Restore User Guide Host Offline'" 
-                    onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-                🔄 Restore Host
-            </button>
-        </div>
-
-        <!-- Social Media Page Button -->
-        <button class="btn-social" onclick="window.open('https://www.facebook.com/MrPs.Store.eg/','_blank')"
-                onmouseover="document.getElementById('msgs').innerHTML='Follow Mr Sherif Official Facebook Page'" 
-                onmouseout="document.getElementById('msgs').innerHTML='MR SHERIF PREMIUM HOST'">
-            Follow Mr Sherif
-        </button>
-    </div>
-
-    <!-- Hidden Sub-Panel: Firmware Center -->
-    <div id="firmware-panel" class="glass-container" style="display: none;">
-        <h2 class="sub-title">MR PS FIRMWARE CENTER</h2>
-        <div class="legacy-grid">
-            <button class="btn-legacy" onclick="location.replace('505goldhen/index.html')">5.05 GoldHEN</button>
-            <button class="btn-legacy" onclick="location.replace('505/index.html')">5.05 v2.5</button>
-            <button class="btn-legacy" onclick="location.replace('672goldhen/index.html')">6.72 GoldHEN</button>
-            <button class="btn-legacy" onclick="location.replace('672/index.html')">6.72 v3.0</button>
-            <button class="btn-legacy" onclick="location.replace('702/index.html')">7.02 v1.4</button>
-            <button class="btn-legacy" onclick="location.replace('75x/index.html')">7.50 - 7.55 v1.5</button>
-            <button class="btn-legacy" onclick="location.replace('900goldhen/index.html')">9.00 GoldHEN</button>
-            <button class="btn-legacy" onclick="location.replace('900v2/index.html')">9.00 v2.8 Manual</button>
-            <button class="btn-legacy" onclick="location.replace('900v3/index.html')">9.00 v3.0 Auto</button>
-        </div>
-        <button class="btn-tool btn-back" onclick="closeFirmwareCenter()">⬅ Back to Main Menu</button>
-    </div>
-
-    <!-- Fixed Console Footer -->
-    <div class="footer-bar">
-        Designed by: <a href="https://www.facebook.com/MrPs.Store.eg/" target="_blank">@MrSherif</a> | 
-        A special thanks to: <a href="https://www.facebook.com/abo.omar.739383?comment_id=Y29tbWVudDo0NDU3OTYxMzI0NDc5MzUyXzEzNTQ2OTYyMjk5MjQ0ODU%3D" target="_blank">❤️🤍@Abo omar</a> & 
-        <a href="https://www.facebook.com/sherif.aref.545" target="_blank">@Eng/Sherif Aref 🤍❤️‍🔥</a>
+    <div class="footer">
+        Designed for: <a href="https://www.facebook.com/sherif.aref.545" target="_blank">@Eng/Sherif Aref ❤️‍🔥</a> | 
+        Special thanks to: <a href="https://www.facebook.com/MrPs.Store.eg/" target="_blank">@Mr Sherif (Mr PS Store)</a>
     </div>
 
     <script>
-        function openFirmwareCenter() {
-            document.getElementById("main-panel").style.display = "none";
-            document.getElementById("firmware-panel").style.display = "block";
-            document.getElementById("msgs").innerHTML = "MR PS FIRMWARE REPOSITORY";
-        }
-        function closeFirmwareCenter() {
-            document.getElementById("firmware-panel").style.display = "none";
-            document.getElementById("main-panel").style.display = "block";
-            document.getElementById("msgs").innerHTML = "MR SHERIF PREMIUM HOST";
-        }
+        (function () {
+            var state = document.getElementById("state");
+            var detail = document.getElementById("detail");
+            var countdown = document.getElementById("countdown");
+            var userAgent = navigator.userAgent || "";
+            var match = userAgent.match(/(?:PlayStation 4|PS4)[\s\/]([\d.]+)/i);
+            var firmware = match && match[1] ? parseFloat(match[1]) : NaN;
+            var firmwareText = match && match[1] ? match[1] : "Unknown";
+            var target = "";
+            var engine = "";
+
+            if (!isNaN(firmware)) {
+                if (firmware >= 5.00 && firmware <= 9.60) {
+                    target = "../g2all/index.html";
+                    engine = "5.05 - 9.60 ENGINE";
+                } else if (firmware >= 10.00 && firmware <= 11.02) {
+                    target = "../ntfonto/index.html";
+                    engine = "10.00 - 11.02 ENGINE";
+                } else if (firmware >= 11.50 && firmware <= 13.00) {
+                    target = "PS4_13.00_Webkit.html";
+                    engine = "FW 13.00 ENGINE";
+                }
+            }
+
+            function startMusic() {
+                var audio = document.getElementById("bg-music");
+                if (!audio) return;
+                try {
+                    var promise = audio.play();
+                    if (promise && typeof promise.catch === "function") promise.catch(function () {});
+                } catch (error) {}
+            }
+
+            startMusic();
+            document.addEventListener("keydown", startMusic, false);
+            document.addEventListener("click", startMusic, false);
+
+            if (!target || !engine) {
+                state.innerHTML = "FIRMWARE NOT SUPPORTED";
+                state.className = "error";
+                detail.innerHTML = "Detected firmware: " + firmwareText;
+                countdown.innerHTML = "Please return to the main menu.";
+                return;
+            }
+
+            state.innerHTML = "FIRMWARE " + firmwareText + " DETECTED";
+            state.className = "ready";
+            detail.innerHTML = "Selected automatically: " + engine;
+
+            var seconds = 4;
+            function tick() {
+                countdown.innerHTML = "Launching automatically in " + seconds + " seconds...";
+                if (seconds <= 0) {
+                    window.location.replace(target);
+                    return;
+                }
+                seconds -= 1;
+                window.setTimeout(tick, 1000);
+            }
+            tick();
+        })();
     </script>
 </body>
 </html>

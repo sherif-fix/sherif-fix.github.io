@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# Sherif Fix FW13 offline cache v6 - MRPS working FW13 base
+# MRPS FW13 offline cache v3 - include UI assets
 
 CACHE:
-PS4_13.00_Webkit.html
 index.html
 run_lapse.html
+PS4_13.00_Webkit.html
 chain_lapse.js
 chain_poops.js
 sysctl.html
@@ -16,14 +16,15 @@ int64.js
 ps4_offsets.js
 rpc_worker.js
 payload.bin
+img.jpg
+icon0.png
+icon0.jpeg
+logo.png
+preview.png
 patches/1100.bin
 patches/1150.bin
 patches/1200.bin
 patches/1300.bin
-../index.html
-../style.css
-../img.jpg
-../icon0.jpg
 
 NETWORK:
 *
