@@ -460,14 +460,13 @@ html, body {
       <div class="hud-left">
         <div id="loader" class="loader"></div>
         <div id="stateText">
-          يجرى الآن تهكير جهازك
-          <span class="loader-dots"><span></span><span></span><span></span></span>
+          جارٍ فحص الكاش وحفظ الملفات أوفلاين...
           <br>
-          <small>Executing payload sequence, please wait...</small>
+          <small>Checking offline cache status...</small>
         </div>
       </div>
-      <div class="hud-right-badge">
-        Memory Exploit
+      <div id="statusBadge" class="hud-right-badge">
+        Checking Cache
       </div>
     </div>
 
@@ -486,7 +485,7 @@ html, body {
         </div>
         <div class="card-details">
           <span class="card-label">التخصص الاحترافي</span>
-          <span class="card-main-text">صيانة احترافية لجميع أجهزة البلايستيشن</span>
+          <span class="card-main-text">صيانة احترافية لشيبات وبوردات البلايستيشن</span>
         </div>
       </div>
 
@@ -499,7 +498,7 @@ html, body {
         </div>
         <div class="card-details">
           <span class="card-label">الخدمات</span>
-          <span class="card-main-text">بيع • صيانة  • تعديل • ألعاب</span>
+          <span class="card-main-text">صيانة أجهزة البلايستيشن • تعديل • ألعاب</span>
         </div>
       </div>
 
@@ -553,26 +552,100 @@ html, body {
 
 </div>
 
-<script type="module">
-import "./chain_poops.js";
+<script>
+var loader = document.getElementById("loader");
+var state = document.getElementById("state");
+var stateText = document.getElementById("stateText");
+var statusBadge = document.getElementById("statusBadge");
+var isCaching = false;
+var exploitStarted = false;
 
-const loader = document.getElementById("loader");
-const state = document.getElementById("state");
-const stateText = document.getElementById("stateText");
+function showCacheProgress(event) {
+  var loaded = event.loaded || 0;
+  var total = event.total || 0;
+  var progress = total > 0 ? Math.round((loaded / total) * 100) : 0;
+  statusBadge.innerText = "Caching " + progress + "%";
+  stateText.innerHTML = "جارٍ حفظ الملفات أوفلاين (" + progress + "%)<br>" +
+    "<small>Caching: " + loaded + " of " + total + " files</small>";
+}
+
+function startExploit() {
+  if (isCaching || exploitStarted) return;
+  exploitStarted = true;
+  statusBadge.innerText = "Executing";
+  stateText.innerHTML = "يجرى الآن تهكير جهازك...<br>" +
+    "<small>Executing payload sequence, please wait...</small>";
+
+  setTimeout(function () {
+    import("./chain_poops.js").catch(function (error) {
+      if (window.console) console.log(error);
+      window.poopsError();
+    });
+  }, 1000);
+}
+
+if (window.applicationCache) {
+  window.applicationCache.addEventListener("checking", function () {
+    statusBadge.innerText = "Checking Cache";
+  });
+
+  window.applicationCache.addEventListener("downloading", function () {
+    isCaching = true;
+    statusBadge.innerText = "Caching Files";
+    stateText.innerHTML = "جارٍ حفظ الملفات أوفلاين في الجهاز...<br>" +
+      "<small>Downloading files for offline usage...</small>";
+  });
+
+  window.applicationCache.addEventListener("progress", function (event) {
+    isCaching = true;
+    showCacheProgress(event);
+  });
+
+  window.applicationCache.addEventListener("cached", function () {
+    isCaching = false;
+    loader.classList.add("done");
+    state.classList.add("done");
+    statusBadge.innerText = "Cached OK";
+    stateText.innerHTML = "تم حفظ الهوست أوفلاين بنجاح<br>" +
+      "<small>Cache Complete! You can now turn OFF the internet.</small>";
+    setTimeout(startExploit, 2000);
+  });
+
+  window.applicationCache.addEventListener("updateready", function () {
+    window.applicationCache.swapCache();
+    window.location.reload();
+  });
+
+  window.applicationCache.addEventListener("noupdate", function () {
+    isCaching = false;
+    startExploit();
+  });
+
+  window.applicationCache.addEventListener("error", function () {
+    isCaching = false;
+    startExploit();
+  });
+
+  setTimeout(function () {
+    if (window.applicationCache.status === 1) startExploit();
+  }, 1500);
+} else {
+  startExploit();
+}
 
 window.poopsDone = function () {
   loader.classList.add("done");
   state.classList.add("done");
-  stateText.innerHTML =
-    "اكتملت العملية بنجاح<br>" +
+  statusBadge.innerText = "Success";
+  stateText.innerHTML = "اكتملت العملية بنجاح<br>" +
     "<small>Done successfully! FW 13.00 Exploit Active.</small>";
 };
 
 window.poopsError = function () {
   loader.classList.remove("done");
   state.classList.add("error");
-  stateText.innerHTML =
-    "حدث خطأ أثناء التنفيذ<br>" +
+  statusBadge.innerText = "Error";
+  stateText.innerHTML = "حدث خطأ أثناء التنفيذ<br>" +
     "<small>Something went wrong... Re-try</small>";
 };
 </script>
