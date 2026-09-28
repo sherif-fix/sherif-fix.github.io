@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sherif Fix | Smart Firmware Host</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+        body {
+            color: #f4f8ff;
+            background: #07101e url('../img.jpg') center center / cover no-repeat fixed;
+            font-family: Arial, Tahoma, sans-serif;
+        }
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: rgba(2, 9, 20, .42);
+        }
+        .topbar {
+            position: relative;
+            z-index: 1;
+            width: 82%;
+            height: 58px;
+            margin: 22px auto 0;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 2px solid #00d9ff;
+            border-radius: 16px;
+            background: rgba(5, 18, 36, .90);
+            box-shadow: 0 0 24px rgba(0, 217, 255, .28);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .brand { display: flex; align-items: center; font-size: 22px; }
+        .brand img { width: 40px; height: 40px; margin-right: 12px; border-radius: 10px; }
+        .online { color: #12f1ce; font-size: 16px; }
+        .online:before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 9px; border-radius: 50%; background: #12f1ce; box-shadow: 0 0 12px #12f1ce; }
+        .panel {
+            position: relative;
+            z-index: 1;
+            width: 700px;
+            max-width: 88%;
+            margin: 9vh auto 0;
+            padding: 34px 46px 32px;
+            text-align: center;
+            border: 2px solid rgba(0, 217, 255, .75);
+            border-radius: 24px;
+            background: rgba(4, 16, 34, .92);
+            box-shadow: 0 0 50px rgba(0, 217, 255, .22), inset 0 0 34px rgba(19, 72, 120, .25);
+        }
+        .logo { width: 78px; height: 78px; object-fit: cover; border-radius: 18px; border: 2px solid #00d9ff; }
+        h1 { margin: 16px 0 8px; color: #00dcff; font-size: 33px; letter-spacing: 3px; }
+        .range { margin: 0 0 24px; color: #b9c9df; font-size: 18px; font-weight: bold; letter-spacing: 1px; }
+        .status-box { padding: 18px; border: 1px solid #2b5c86; border-radius: 14px; background: rgba(0, 0, 0, .25); }
+        #state { margin: 0; color: #fff; font-size: 25px; font-weight: bold; }
+        #detail { min-height: 25px; margin-top: 9px; color: #60ffe5; font-size: 17px; font-weight: bold; }
+        #countdown { margin-top: 20px; color: #ffcb3d; font-size: 17px; }
+        .routes { margin-top: 21px; color: #aebed2; font-size: 14px; line-height: 1.7; }
+        .error { color: #ff665b !important; }
+        .ready { color: #60ffe5 !important; }
+        .footer { position: fixed; z-index: 1; left: 0; right: 0; bottom: 16px; text-align: center; color: #e8f1ff; font-size: 15px; font-weight: bold; }
+        .footer span { color: #ff3d45; }
+    .footer{position:relative;bottom:auto;margin:24px auto 0;padding:12px;background:rgba(4,16,34,.85);line-height:1.6}.footer small{font-size:11px}html,body{height:auto;min-height:100vh;overflow:auto}body{display:flex;flex-direction:column}body:before{pointer-events:none}.panel{margin:6vh auto 0}.footer{margin-top:auto}.panel{margin-bottom:24px}@media(max-width:700px){.topbar{width:92%;padding:0 12px}.brand{font-size:16px}.online{font-size:10px}.panel{padding:24px 16px}h1{font-size:25px}.footer{font-size:12px}}.footer{background:transparent;border:0;box-shadow:none;text-shadow:0 2px 4px #000,0 0 8px #000}</style>
+</head>
+<body>
+    
+
+    <div class="topbar">
+        <div class="brand"><img src="../icon0.png" alt="Sherif Fix">Sherif Fix</div>
+        <div class="online">SMART ROUTER ONLINE</div>
+    </div>
+
+    <main class="panel">
+        <img class="logo" src="../icon0.png" alt="Sherif Fix">
+        <h1>Sherif Aref SMART HOST</h1>
+        <p class="range">AUTOMATIC FIRMWARE DETECTION 5.05 / 7.00 - 13.52</p>
+        <div class="status-box">
+            <p id="state">DETECTING YOUR PS4 FIRMWARE...</p>
+            <div id="detail"></div>
+        </div>
+        <div id="countdown"></div>
+        <div class="routes">5.05 / 5.07 &nbsp;|&nbsp; 7.00–9.60 &nbsp;|&nbsp; 10.00–11.02 &nbsp;|&nbsp; 11.50–13.52</div>
+    </main>
+
+    <footer class="footer"><div>Call: <b>01062656370</b> &nbsp;|&nbsp; WhatsApp: <b>01091497611</b></div><div dir="rtl">نجع حمادي - الشرقي بهجورة</div><div>Created &amp; designed by <span>Mr Sherif Abd El-Moniem (Mr PS Store)</span></div><div>A special gift for <a href="https://www.facebook.com/sherif.aref.545" style="color:inherit;text-decoration:none">Sherif Aref (Sherif Fix)</a> · Special thanks to Mr Sherif Abd El-Moniem</div><small>Interface: Mr Sherif · Thanks to all original developers.</small></footer>
+
+    <script src="../ui/router.js"></script>
+</body>
+</html>
